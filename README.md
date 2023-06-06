@@ -4,7 +4,7 @@ description: Proposals that adhere strongly to Ordinal Theory.
 
 # Ordinal Theory Improvement Proposals
 
-This is a collection of a series of proposed improvements to [Ordinal Theory](https://docs.ordinals.com/).
+This is a collection of proposed improvements to [Ordinal Theory](https://docs.ordinals.com/).
 
 Ordinal Theory Improvement Proposals, can also be appreviated to OIP.&#x20;
 
