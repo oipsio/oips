@@ -1,5 +1,7 @@
 # OIP-02: Verifiable Ordinal Collection
 
+**Status:** RFC (Request for Comment)
+
 This is also commonly known as **Verifiable Ordinals**. &#x20;
 
 ### Overview
@@ -10,7 +12,7 @@ Non-fungible token (NFT), esp. on Ethereum, takes off massively not only due to 
 2. Buyer pays for gas (transaction fees) while allowing creators and artists to profit from it.
 3. Parentage links, allowing NFTs to be traces to its parent smart contract, therefore knowing that its legitimacy as part of a collection.
 
-It would be remarkable if the same can be achieved for Bitcoin-based ordinal, while staying true to the orignal intents and ethos of Ordinal Theory. This proposal intends to do that while not violating the [guidelines & boundaries](./#guidelines-and-boundaries) set out for Ordinal Theory Improvements.
+It would be remarkable if the same can be achieved for Bitcoin-based ordinal, while staying true to the orignal intents and ethos of Ordinal Theory. This proposal intends to do that while not violating the [guidelines & boundaries](broken-reference) set out for Ordinal Theory Improvements.
 
 ### Roles
 
@@ -173,10 +175,25 @@ If `sri` is defined at collection, content integrity verification should also be
 Further improvements to OIP-2: Verifiable Ordinal Collection can include:
 
 1. Multi-publisher workflow by allowing Publisher to publish sales on the blockchain.
-   1. This will allow for better tracking of `lim` beyond single Publisher in order not to oversell.
+   * This will allow for better tracking of `lim` beyond single Publisher in order not to oversell.
 2. Traits-based inscriptions, where collection is defined as permutations of traits rather than defined as individual inscriptions.&#x20;
 
 The above may be further published as separate proposals and is intended to not be included as part of this proposal for better focus and clarity.
+
+### Alternatives
+
+Exploring various alternative proposals that are in the similar space:
+
+1. [Generative BRC-721](https://github.com/jerryfane/generative-brc-721)
+   1. This allows for collection defined via traits-based permutations.
+   2. While the traits are stored on-chain in a form of stringified data, the resulting artefact is a metadata with instructions on how to recreate the image.
+   3. This, however, would render on ordinals.com as text but not image and would require sites to specifically support the standard to generate the desired image.&#x20;
+2. [BRC 721 experimental proposal](https://brc-721.gitbook.io/about-the-brc-721-experimental-proposal/)
+   1. This proposal introduces externally linked (IPFS) images.&#x20;
+   2. It does not adhere to [Ordinal Theory's definition of digital artifacts](https://docs.ordinals.com/inscriptions.html), which states that inscription content has to be entirely on-chain.
+3. [BRC-721 Ordinals Collection Protocol](https://www.brc721.com)
+   1. This is a protocol that introduces a similar standard with that of ERC-721 of Ethereum.
+   2. Content is not on-chain and is externally linked in the form of `tokenURI`.&#x20;
 
 ### FAQ
 

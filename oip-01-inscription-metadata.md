@@ -1,5 +1,7 @@
 # OIP-01: Inscription Metadata
 
+**Status:** RFC (Request for Comment)
+
 ### Overview
 
 Inscriptions are done using "envelopes" as described on the [Ordinal Theory Handbook](https://docs.ordinals.com/inscriptions.html). While it supports multiple media types, it leaves no rooms for metadata.
