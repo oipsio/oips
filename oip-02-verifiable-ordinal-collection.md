@@ -185,15 +185,15 @@ The above may be further published as separate proposals and is intended to not 
 Exploring various alternative proposals that are in the similar space:
 
 1. [Generative BRC-721](https://github.com/jerryfane/generative-brc-721)
-   1. This allows for collection defined via traits-based permutations.
-   2. While the traits are stored on-chain in a form of stringified data, the resulting artefact is a metadata with instructions on how to recreate the image.
-   3. This, however, would render on ordinals.com as text but not image and would require sites to specifically support the standard to generate the desired image.&#x20;
+   * This allows for collection defined via traits-based permutations.
+   * While the traits are stored on-chain in a form of stringified data, the resulting artefact is a metadata with instructions on how to recreate the image.
+   * This, however, would render on ordinals.com as text but not image and would require sites to specifically support the standard to generate the desired image.&#x20;
 2. [BRC 721 experimental proposal](https://brc-721.gitbook.io/about-the-brc-721-experimental-proposal/)
-   1. This proposal introduces externally linked (IPFS) images.&#x20;
-   2. It does not adhere to [Ordinal Theory's definition of digital artifacts](https://docs.ordinals.com/inscriptions.html), which states that inscription content has to be entirely on-chain.
+   * This proposal introduces externally linked (IPFS) images.&#x20;
+   * It does not adhere to [Ordinal Theory's definition of digital artifacts](https://docs.ordinals.com/inscriptions.html), which states that inscription content has to be entirely on-chain.
 3. [BRC-721 Ordinals Collection Protocol](https://www.brc721.com)
-   1. This is a protocol that introduces a similar standard with that of ERC-721 of Ethereum.
-   2. Content is not on-chain and is externally linked in the form of `tokenURI`.&#x20;
+   * This is a protocol that introduces a similar standard with that of ERC-721 of Ethereum.
+   * Content is not on-chain and is externally linked in the form of `tokenURI`.&#x20;
 
 ### FAQ
 
