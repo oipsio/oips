@@ -6,7 +6,7 @@ description: Proposals that adhere strongly to Ordinal Theory.
 
 This is a collection of proposed improvements to [Ordinal Theory](https://docs.ordinals.com/).
 
-Ordinal Theory Improvement Proposals, can also be appreviated to OIP.&#x20;
+Ordinal Theory Improvement Proposals, can also be appreviated to OIP.
 
 ### Guidelines and boundaries
 
@@ -20,7 +20,7 @@ Ordinal Theory Improvement Proposals, can also be appreviated to OIP.&#x20;
 
 ### About
 
-This document is initially proposed by the core developers of [Sado Protocol](https://sado.space) – and open protocol and SDK for all things Ordinals. It is, however, intended to be fully open and therefore allowing open contributions by all.&#x20;
+This document is initially proposed by the core developers of [Sado Protocol](https://sado.space) – an open protocol and SDK for all things Ordinals. It is, however, intended to be fully open and therefore allowing open contributions by all.
 
 Pull requests and suggestions are welcomed.
 
