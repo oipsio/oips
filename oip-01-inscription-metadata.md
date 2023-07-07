@@ -14,7 +14,7 @@ Some workarounds potentials:
 However, the above come with its own sets of challenges:&#x20;
 
 1. Inscriptions cannot be linked together purely on-chain without metadata.
-2. Linkage via extsernal storage involves an external media, which may not be available universally alongside the Bitcoin blockchain.
+2. Linkage via external storage involves an external media, which may not be available universally alongside the Bitcoin blockchain.
 3. Linkage via external storage is one-way only, external to ordinal. This may result in multiple metadata pointing to the main one, not knowing which is the canonical one.&#x20;
 
 Therefore, the ideal solution is to have metadata not only fully on-chain, also ideally attached with the same ordinal.
@@ -49,7 +49,7 @@ Note that the content in the metadata example above is merely meant as an arbitr
 
 ### FAQ
 
-#### 1. What tools are available to parse onchain ordinal metadata (OIP-01)?
+#### 1. What tools are available to parse on-chain ordinal metadata (OIP-01)?
 
 Tools are still being developed and will be updated as tools and libraries are known or available. If you have developed a tool, please submit a pull request to update this document with a link to your tools.
 
