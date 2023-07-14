@@ -12,7 +12,7 @@ Non-fungible token (NFT), esp. on Ethereum, takes off massively not only due to 
 2. Buyer pays for gas (transaction fees) while allowing creators and artists to profit from it.
 3. Parentage links, allowing NFTs to be traces to its parent smart contract, therefore knowing that its legitimacy as part of a collection.
 
-It would be remarkable if the same can be achieved for Bitcoin-based ordinal, while staying true to the orignal intents and ethos of Ordinal Theory. This proposal intends to do that while not violating the [guidelines & boundaries](broken-reference) set out for Ordinal Theory Improvements.
+It would be remarkable if the same can be achieved for Bitcoin-based ordinal, while staying true to the original intents and ethos of Ordinal Theory. This proposal intends to do that while not violating the [guidelines & boundaries](broken-reference) set out for Ordinal Theory Improvements.
 
 ### Roles
 
@@ -21,10 +21,10 @@ The following roles are defined to align on the understanding:
 1. Creator
    * Usually the artist.
    * Initiates of collection of ordinal inscriptions.
-   * Usually, intends to be paid, especially from the first sale of an ordinal in the said colelction.
+   * Usually, intends to be paid, especially from the first sale of an ordinal in the said collection.
 2. Publisher
    * Service, or website, that provides minting service of ordinals that belong to the said collection.
-   * Usuaully also provides collection creation service to the Creator.
+   * Usually also provides collection creation service to the Creator.
 3. Purchaser
    * First-hand buyer, and therefore owner, of an ordinal from a collection.
    * Pays the purchase price, of which the bulk of it should go to the Creator.&#x20;
@@ -33,7 +33,7 @@ The following roles are defined to align on the understanding:
 
 1. Provide a method where creator, especially artist, who intends to make their artwork available as ordinal inscriptions do not have to start with big capital outlay to cover the inscription costs.&#x20;
 2. Allows for first-hand buyer to take ownership of inscribing, and therefore pay for inscription fee.
-3. Allows ordinals to be independently verified, if they belong to a specific collection, or otherwise. Verifiation must be able to be carried out in a fully trastless manner, by anyone, including unrelated third-parties, and in an asynchronoous way.
+3. Allows ordinals to be independently verified, if they belong to a specific collection, or otherwise. Verification must be able to be carried out in a fully trustless manner, by anyone, including unrelated third-parties, and in an asynchronous way.
 4. Inscriptions trading must be carried out on-chain, just like other ordinals. Off-chain trading of ordinals must not be possible.
 5. Adheres to the ideals of ordinal inscriptions, specifically that inscriptions should be fully on-chain and ideally, maintain backward-compatibility to services that implement only the original Ordinal Theory without support of any further improvements.
 
@@ -93,19 +93,19 @@ Notes:
 1. `p` and `v` are required. They refer to protocol and version.
 2. `ty` refers to `type`. Only `col` and `insc` are 2 valid values. `col` is used here for collection.
 3. `slug` is a suggestion and not a guarantee that the slug would be reserved to the specific collection. Even if `slug` has already taken by other collections before this one, this collection remains valid.
-4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used  verification of inscribed Ordinals.&#x20;
+4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used verification of inscribed Ordinals.&#x20;
    * As Bitcoin Core does not support sign messages with bech32 address,  there are no known standard ways to sign messages with bech32 address today, it is recommended that publisher's address to be of the legacy type, usually starting with `1`.
 5. `insc` refers to an array of inscription collections.
    * `iid` refers to inscription ID. It must be unique within a collection. Collision of `iid` invalidates the collection definition.
    * `lim` defines the maximum amount that an inscription can be sold or inscribed. Further inscriptions beyond `lim` count will not validate.&#x20;
    * `sri` is an optional field and refers to subresource integrity. It adds resource integrity to inscriptions.
      1. SRI is defined in accordance to [W3C's SRI specifications](https://www.w3.org/TR/SRI/).&#x20;
-     2. If `sri` is present, validation must check for resource integrity. Otherwise resource integrity check is not needed.
+     2. If `sri` is present, validation must check for resource integrity. Otherwise, resource integrity check is not needed.
 6. Post-inscription of the collection, take note of its genesis txid. That is needed for inscription verification. It can also be referred to as collection ID.
 
 ### Verifiable Ordinal Inscription
 
-Veriable ordinal inscription is to be inscribed as as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
+Veriable ordinal inscription is to be inscribed as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
 
 Metadata for inscription:
 
@@ -158,7 +158,7 @@ Notes:
 
 #### Signature and Verification
 
-Referring to the example above, signature generation, by the publisher, can be generated as follow, using the standard `signmessage` command of Bitcoin Core:&#x20;
+Referring to the example above, signature generation, by the publisher, can be generated as follows, using the standard `signmessage` command of Bitcoin Core:&#x20;
 
 ```bash
 $ bitcoin-cli signmessage 13fh1atRp7rV2qdGuxhFabGkmKAnRia9Kq "eb9d4726a7caaaf5a7fe082059cb37b97b188845b70f476fa9833ec3079f5600 wiz-01 0"
@@ -209,7 +209,7 @@ Programming-language specific toolings and libraries are still being developed a
 
 #### 2. Would this break Ordinals for other users/tools/sites that are not aware of Verifiable Ordinals?
 
-Absolutely not. Verfiiable Ordinals is backward-compatible. Services that are not aware of Verfiable Ordinals will simply be displaying ordinals and their inscriptions fine.
+Absolutely not. Verifiable Ordinals is backward-compatible. Services that are not aware of Verifiable Ordinals will simply be displaying ordinals and their inscriptions fine.
 
 
 
