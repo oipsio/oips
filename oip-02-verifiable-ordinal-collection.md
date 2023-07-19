@@ -20,7 +20,7 @@ The following roles are defined to align on the understanding:
 
 1. Creator
    * Usually the artist.
-   * Initiates of collection of ordinal inscriptions.
+   * Initiates collection of ordinal inscriptions.
    * Usually, intends to be paid, especially from the first sale of an ordinal in the said collection.
 2. Publisher
    * Service, or website, that provides minting service of ordinals that belong to the said collection.
@@ -32,7 +32,7 @@ The following roles are defined to align on the understanding:
 ### Objectives
 
 1. Provide a method where creator, especially artist, who intends to make their artwork available as ordinal inscriptions do not have to start with big capital outlay to cover the inscription costs.&#x20;
-2. Allows for first-hand buyer to take ownership of inscribing, and therefore pay for inscription fee.
+2. Allows first-hand buyers to take ownership of inscribing, and therefore pay for inscription fee.
 3. Allows ordinals to be independently verified, if they belong to a specific collection, or otherwise. Verification must be able to be carried out in a fully trustless manner, by anyone, including unrelated third-parties, and in an asynchronous way.
 4. Inscriptions trading must be carried out on-chain, just like other ordinals. Off-chain trading of ordinals must not be possible.
 5. Adheres to the ideals of ordinal inscriptions, specifically that inscriptions should be fully on-chain and ideally, maintain backward-compatibility to services that implement only the original Ordinal Theory without support of any further improvements.
@@ -46,10 +46,10 @@ The proposed solution covers the following arbitrary and hopefully general flow 
 1. Creator initiates a collection, usually a series of ordinal inscriptions with a theme.
 2. Creator defines and publishes the collection via the service of a Publisher.
 3. Purchaser browses the collection, at this stage uninscribed, at Publisher's site, and decides to purchase a specific item from the collection.
-4. Purchaser pays for the purchase via Publisher's site and receives the inscription's payload, e.g. an image, and its metadata, delivered in the form of unsigned transaction.
+4. Purchaser pays for the purchase via Publisher's site and receives the inscription's payload, e.g. an image, and its metadata, delivered in the form of an unsigned transaction.
    1. Creator receives the bulk of the purchase fees.&#x20;
-5. Purchaser can choose the for the right moment to inscribe based on factors such as Bitcoin network fees.
-   1. Purchase, however, would not be able to trade/resell the purchased ordinal without first inscribing them as doing so would invalidate the verifiable ordinal.
+5. Purchaser can choose for the right moment to inscribe based on factors such as Bitcoin network fees.
+   1. Purchaser, however, would not be able to trade/resell the purchased ordinal without first inscribing them as doing so would invalidate the verifiable ordinal.
 
 ### Collection
 
@@ -92,12 +92,12 @@ Notes:
 
 1. `p` and `v` are required. They refer to protocol and version.
 2. `ty` refers to `type`. Only `col` and `insc` are 2 valid values. `col` is used here for collection.
-3. `slug` is a suggestion and not a guarantee that the slug would be reserved to the specific collection. Even if `slug` has already taken by other collections before this one, this collection remains valid.
-4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used verification of inscribed Ordinals.&#x20;
-   * As Bitcoin Core does not support sign messages with bech32 address,  there are no known standard ways to sign messages with bech32 address today, it is recommended that publisher's address to be of the legacy type, usually starting with `1`.
+3. `slug` is a suggestion and not a guarantee that the slug would be reserved for the specific collection. Even if `slug` has already taken by other collections before this one, this collection remains valid.
+4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used for verification of inscribed Ordinals.&#x20;
+   * As Bitcoin Core does not support message signing with bech32 address, there are no known standard ways to sign messages with bech32 address today, it is recommended that publisher's address to be of the [legacy](https://bitcoin.design/guide/glossary/address/#legacy-address---p2pkh) type, usually starting with `1`.
 5. `insc` refers to an array of inscription collections.
    * `iid` refers to inscription ID. It must be unique within a collection. Collision of `iid` invalidates the collection definition.
-   * `lim` defines the maximum amount that an inscription can be sold or inscribed. Further inscriptions beyond `lim` count will not validate.&#x20;
+   * `lim` defines the maximum number of times that an inscription can be sold or inscribed. Further inscriptions beyond `lim` count will be deemed invalid.&#x20;
    * `sri` is an optional field and refers to subresource integrity. It adds resource integrity to inscriptions.
      1. SRI is defined in accordance to [W3C's SRI specifications](https://www.w3.org/TR/SRI/).&#x20;
      2. If `sri` is present, validation must check for resource integrity. Otherwise, resource integrity check is not needed.
@@ -105,7 +105,7 @@ Notes:
 
 ### Verifiable Ordinal Inscription
 
-Veriable ordinal inscription is to be inscribed as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
+Verfiable ordinal inscription is to be inscribed as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
 
 Metadata for inscription:
 
@@ -129,32 +129,32 @@ Notes:
 3. `col` refers to genesis txid where the collection inscription can be located.
    * If the collection inscription has been moved, `col` , referring to genesis txid and not current location of the collection means that it would remain unchanged.
 4. `col` and `iid` as a tuple refers specifically to an inscription.&#x20;
-   * There could be multiple of the same `col` and `iid` up to the  `lim` that's defined at collection.&#x20;
+   * There could be multiple of the same `col` and `iid` up to the `lim` that's defined at collection.&#x20;
    * Further inscriptions beyond `lim` must not validate.
 5. `publ` refers to one of the publisher's Bitcoin addresses as defined at collection.
    * `publ` is the key that is being used to sign the message and produce `sig`
-6. `nonce` is integer and is incremental, starting from 0 all to `lim-1`.
+6. `nonce` is an incremental integer, starting from 0 to `lim-1`.
    * This is to ensure that there will only be `lim` number of inscriptions per `iid` as specified in the collection definition.
    * `nonce` does not have to be published in order, if `nonce=4` is published before `nonce=3` it is still a valid inscription as long as:
      * `nonce < lim`, and
      * `nonce` is the only one on chain. If nonce collides for the same `iid`, only the first one to be mined in a block, or the first one in the list of transactions in a block will be valid.
-7. `sig` refers to the signature generated by the publisher using the address referred to in `publ` with the payload being `COLLECTION_ID INSCRIPTION_ID NONCE`
-   * `sig`  generated by publisher using a standard `signmessage` command of Bitcoin Core.
-   * `sig` can be independently verified by anyone using `verifymessage` command of Bitcoin Core.
+7. `sig` refers to the signature generated by the publisher using the address referred in `publ` with the payload being `COLLECTION_ID INSCRIPTION_ID NONCE` where each value is separated by a single whitespace.
+   * `sig` generated by publisher using a standard `signmessage` command of Bitcoin Core or an equivalent method in any Bitcoin library.
+   * `sig` can be independently verified by anyone using `verifymessage` command of Bitcoin Core or any Bitcoin library.
 
 #### Inscription and UX
 
-1. Publish MUST provide the purchaser with the following:
+1. Publisher MUST provide the purchaser with the following:
    * Raw unsigned inscription payload with the content, wrapped in the first inscription envelope.&#x20;
    * Metadata for verification, wrapped in the second inscription envelope, as defined in [Inscription Metadata](oip-01-inscription-metadata.md).
 2. Publisher SHOULD provide the purchaser with the following:
    * Rendered content of the purchased ordinal. This is typically an image, but may also be any content type supported by Ordinal Theory, including but not limited to text, movie, sound, etc.
-   * Instruction to inscribe using the purchased address, and not any other addresses.&#x20;
+   * Instructions to inscribe using the purchased address, and not any other addresses.&#x20;
 3. Purchaser CAN inscribe the purchased inscription at any time.
-4. Publisher SHOULD take note of sold Inscriptions and not to oversell.
-5. Publisher SHOULD forward the commission from the fee collected by Purchaser, based on any contracts that Publisher with the Creator.
-6. Sites and services or marketplaces that support verifiable ordinal SHOULD provide and indicator if an ordinal is a Verifiable Ordinal and SHOULD provide a checkmark if it passes or fails validation.&#x20;
-   * If it fails, reason(s) on the failure SHOULD be provided.&#x20;
+4. Publisher SHOULD take note of sold inscriptions and not oversell.
+5. Publisher SHOULD forward the commission collected from the fee paid by Purchaser, based on any contracts that the Publisher have with the Creator.
+6. Sites and services or marketplaces that support verifiable ordinal SHOULD provide an indicator if an ordinal is a Verifiable Ordinal and SHOULD provide a checkmark if it passes or fails validation.&#x20;
+   * If it fails, reason(s) of the failure SHOULD be provided.&#x20;
 
 #### Signature and Verification
 
