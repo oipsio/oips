@@ -105,7 +105,7 @@ Notes:
 
 ### Verifiable Ordinal Inscription
 
-Verfiable ordinal inscription is to be inscribed as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
+Verifiable ordinal inscription is to be inscribed as a valid inscription with an attached metadata, following [Inscription Metadata](oip-01-inscription-metadata.md) recommendations.
 
 Metadata for inscription:
 
