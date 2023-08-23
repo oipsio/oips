@@ -19,9 +19,15 @@ Ordinal Theory Improvement Proposals, can also be appreviated to OIP.
 * [OIP-02: Verifiable Ordinal Collection](oip-02-verifiable-ordinal-collection.md)
 * [OIP-03: Recoverable Commits](oip-03-recoverable-commits.md)
 
+### Proponents
+
+* [Sado Protocol](https://sado.space)
+* [Unisat](https://unisat.io)
+* [Ordzaar](https://ordzaar.com)
+
 ### About
 
-This document is initially proposed by the core developers of [Sado Protocol](https://sado.space) – an open protocol and SDK for all things Ordinals. It is, however, intended to be fully open and therefore allowing open contributions by all.
+This initiative is initially proposed by the core developers of [Sado Protocol](https://sado.space) – an open protocol and SDK for all things Ordinals. It is intended to be fully open and therefore allowing open contributions by all, for the benefits of making ordinals protocol more user and developer-friendly. 
 
 Pull requests and suggestions are welcomed.
 
