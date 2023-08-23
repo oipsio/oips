@@ -19,7 +19,7 @@ Ordinal Theory Improvement Proposals, can also be appreviated to OIP.
 * [OIP-02: Verifiable Ordinal Collection](oip-02-verifiable-ordinal-collection.md)
 * [OIP-03: Recoverable Commits](oip-03-recoverable-commits.md)
 
-### Proponents
+### Friends of OIPs
 
 * [Sado Protocol](https://sado.space)
 * [Unisat](https://unisat.io)
