@@ -116,7 +116,7 @@ Metadata for inscription:
   "p": "vord",
   "v": 1,
   "ty": "insc",
-  "col": "eb9d4726a7caaaf5a7fe082059cb37b97b188845b70f476fa9833ec3079f5600",
+  "col": "eb9d4726a7caaaf5a7fe082059cb37b97b188845b70f476fa9833ec3079f5600:0",
   "iid": "wiz-01",
   "publ": "1PublisherBitcoinAddress1",
   "nonce": 0,
