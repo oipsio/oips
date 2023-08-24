@@ -2,7 +2,7 @@
 
 **Status:** RFC (Request for Comment)
 
-This is also commonly known as **Verifiable Ordinals**. &#x20;
+This is also commonly known as **Verifiable Ordinals**.
 
 ### Overview
 
@@ -27,11 +27,11 @@ The following roles are defined to align on the understanding:
    * Usually also provides collection creation service to the Creator.
 3. Purchaser
    * First-hand buyer, and therefore owner, of an ordinal from a collection.
-   * Pays the purchase price, of which the bulk of it should go to the Creator.&#x20;
+   * Pays the purchase price, of which the bulk of it should go to the Creator.
 
 ### Objectives
 
-1. Provide a method where creator, especially artist, who intends to make their artwork available as ordinal inscriptions do not have to start with big capital outlay to cover the inscription costs.&#x20;
+1. Provide a method where creator, especially artist, who intends to make their artwork available as ordinal inscriptions do not have to start with big capital outlay to cover the inscription costs.
 2. Allows first-hand buyers to take ownership of inscribing, and therefore pay for inscription fee.
 3. Allows ordinals to be independently verified, if they belong to a specific collection, or otherwise. Verification must be able to be carried out in a fully trustless manner, by anyone, including unrelated third-parties, and in an asynchronous way.
 4. Inscriptions trading must be carried out on-chain, just like other ordinals. Off-chain trading of ordinals must not be possible.
@@ -47,7 +47,7 @@ The proposed solution covers the following arbitrary and hopefully general flow 
 2. Creator defines and publishes the collection via the service of a Publisher.
 3. Purchaser browses the collection, at this stage uninscribed, at Publisher's site, and decides to purchase a specific item from the collection.
 4. Purchaser pays for the purchase via Publisher's site and receives the inscription's payload, e.g. an image, and its metadata, delivered in the form of an unsigned transaction.
-   1. Creator receives the bulk of the purchase fees.&#x20;
+   1. Creator receives the bulk of the purchase fees.
 5. Purchaser can choose for the right moment to inscribe based on factors such as Bitcoin network fees.
    1. Purchaser, however, would not be able to trade/resell the purchased ordinal without first inscribing them as doing so would invalidate the verifiable ordinal.
 
@@ -55,8 +55,9 @@ The proposed solution covers the following arbitrary and hopefully general flow 
 
 Collection is to be inscribed as a `text/plain` inscription with the following:
 
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>  "p": "vord",
+```json
+{
+  "p": "vord",
   "v": 1,
   "ty": "col",
   "title": "Wizards",
@@ -68,7 +69,7 @@ Collection is to be inscribed as a `text/plain` inscription with the following:
     "email": "artist@example.org",
     "address": "1BitcoinAddress"
   },
-  "publ": ["1PublisherBitcoinAddress1", "1PublisherBitcoinAddress2"],
+  "publ": ["1PublisherBitcoinAddress1", "1PublisherPublicKey1"],
   "insc": [
     {
       "iid": "wiz-01",
@@ -76,7 +77,7 @@ Collection is to be inscribed as a `text/plain` inscription with the following:
       "sri": "sha256-Ujac9y464/qlFmtfLDxORaUtIDH8wrHgv8L9bpPeb28="
     },
     {
-      "iid": "wiz-02",
+      "iid": "IDs as Titles #2",
       "lim": 1,
       "sri": "sha256-zjQXDuk++5sICrObmfWqAM5EibidXd2emZoUcU2l5Pg="
     },
@@ -86,22 +87,23 @@ Collection is to be inscribed as a `text/plain` inscription with the following:
     }
   ]
 }
-</code></pre>
+```
 
 Notes:
 
 1. `p` and `v` are required. They refer to protocol and version.
 2. `ty` refers to `type`. Only `col` and `insc` are 2 valid values. `col` is used here for collection.
 3. `slug` is a suggestion and not a guarantee that the slug would be reserved for the specific collection. Even if `slug` has already taken by other collections before this one, this collection remains valid.
-4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used for verification of inscribed Ordinals.&#x20;
+4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used for verification of inscribed Ordinals.
    * As Bitcoin Core does not support message signing with bech32 address, there are no known standard ways to sign messages with bech32 address today, it is recommended that publisher's address to be of the [legacy](https://bitcoin.design/guide/glossary/address/#legacy-address---p2pkh) type, usually starting with `1`.
+   * Alternatively, either an array of Bitcoin public keys or a mix of addresses and kpublic keys can also be used, which allows for a wider range of message signing and verification processes.
 5. `insc` refers to an array of inscription collections.
    * `iid` refers to inscription ID. It must be unique within a collection. Collision of `iid` invalidates the collection definition.
    * `lim` defines the maximum number of times that an inscription can be sold or inscribed. Further inscriptions beyond `lim` count will be deemed invalid.&#x20;
    * `sri` is an optional field and refers to subresource integrity. It adds resource integrity to inscriptions.
-     1. SRI is defined in accordance to [W3C's SRI specifications](https://www.w3.org/TR/SRI/).&#x20;
+     1. SRI is defined in accordance to [W3C's SRI specifications](https://www.w3.org/TR/SRI/)
      2. If `sri` is present, validation must check for resource integrity. Otherwise, resource integrity check is not needed.
-6. Post-inscription of the collection, take note of its genesis txid. That is needed for inscription verification. It can also be referred to as collection ID.
+6. Post-inscription of the collection, take note of its genesis txid or current outpoint, which are needed for inscription verification. Either of these may be referred to as `collectionID`.
 
 ### Verifiable Ordinal Inscription
 
@@ -126,12 +128,12 @@ Notes:
 
 1. `p` and `v` are required. They refer to protocol and version.
 2. `ty` refers to `type`. Only `col` and `insc` are 2 valid values. `insc` is used here for inscription.
-3. `col` refers to genesis txid where the collection inscription can be located.
+3. `col` refers to either a genesis txid or current outpoint where the collection inscription can be located.
    * If the collection inscription has been moved, `col` , referring to genesis txid and not current location of the collection means that it would remain unchanged.
-4. `col` and `iid` as a tuple refers specifically to an inscription.&#x20;
-   * There could be multiple of the same `col` and `iid` up to the `lim` that's defined at collection.&#x20;
+4. `col` and `iid` as a tuple refers specifically to an inscription.
+   * There could be multiple of the same `col` and `iid` up to the `lim` that's defined at collection.
    * Further inscriptions beyond `lim` must not validate.
-5. `publ` refers to one of the publisher's Bitcoin addresses as defined at collection.
+5. `publ` refers to either one of the publisher's Bitcoin addresses or public keys as defined when creating the collection.
    * `publ` is the key that is being used to sign the message and produce `sig`
 6. `nonce` is an incremental integer, starting from 0 to `lim-1`.
    * This is to ensure that there will only be `lim` number of inscriptions per `iid` as specified in the collection definition.
@@ -154,11 +156,11 @@ Notes:
 4. Publisher SHOULD take note of sold inscriptions and not oversell.
 5. Publisher SHOULD forward the commission collected from the fee paid by Purchaser, based on any contracts that the Publisher have with the Creator.
 6. Sites and services or marketplaces that support verifiable ordinal SHOULD provide an indicator if an ordinal is a Verifiable Ordinal and SHOULD provide a checkmark if it passes or fails validation.&#x20;
-   * If it fails, reason(s) of the failure SHOULD be provided.&#x20;
+   * If it fails, reason(s) of the failure SHOULD be provided.
 
 #### Signature and Verification
 
-Referring to the example above, signature generation, by the publisher, can be generated as follows, using the standard `signmessage` command of Bitcoin Core:&#x20;
+Referring to the example above, signature generation, by the publisher, can be generated as follows, using the standard `signmessage` command of Bitcoin Core:
 
 ```bash
 $ bitcoin-cli signmessage 13fh1atRp7rV2qdGuxhFabGkmKAnRia9Kq "eb9d4726a7caaaf5a7fe082059cb37b97b188845b70f476fa9833ec3079f5600 wiz-01 0"
@@ -167,12 +169,16 @@ H+i8FyNiLVvCqcjOqluKzU+lvy2RY8AGBqlFEgFGgaLALQ3zamtnxo6XzuPuyFD0sKd+5Tz2Q552sbNP
 
 Verification can be done by anyone using `verifymessage` as follows:
 
-```
+```bash
 $ bitcoin-cli verifymessage 13fh1atRp7rV2qdGuxhFabGkmKAnRia9Kq "H+i8FyNiLVvCqcjOqluKzU+lvy2RY8AGBqlFEgFGgaLALQ3zamtnxo6XzuPuyFD0sKd+5Tz2Q552sbNPb2A0kjo=" "eb9d4726a7caaaf5a7fe082059cb37b97b188845b70f476fa9833ec3079f5600 wiz-01 0"
 true
 ```
 
-If `sri` is defined at collection, content integrity verification should also be carried out in accordance to [W3C's SRI specification](https://www.w3.org/TR/SRI/).&#x20;
+Alternatively, for an example of signing and verifying using bitcoin-core standards with taproot addresses, the inclusion of a public key is required, but can only be signed and verified using external libraries, with supporting libraries including:
+
+    * [Ordit SDK](https://github.com/sadoprotocol/ordit-sdk)
+
+If `sri` is defined at collection, content integrity verification should also be carried out in accordance to [W3C's SRI specification](https://www.w3.org/TR/SRI/).
 
 ### Improvements
 
@@ -180,7 +186,7 @@ Further improvements to OIP-2: Verifiable Ordinal Collection can include:
 
 1. Multi-publisher workflow by allowing Publisher to publish sales on the blockchain.
    * This will allow for better tracking of `lim` beyond single Publisher in order not to oversell.
-2. Traits-based inscriptions, where collection is defined as permutations of traits rather than defined as individual inscriptions.&#x20;
+2. Traits-based inscriptions, where collection is defined as permutations of traits rather than defined as individual inscriptions.
 
 The above may be further published as separate proposals and is intended to not be included as part of this proposal for better focus and clarity.
 
@@ -191,17 +197,17 @@ Exploring various alternative proposals that are in the similar space:
 1. [Generative BRC-721](https://github.com/jerryfane/generative-brc-721)
    * This allows for collection defined via traits-based permutations.
    * While the traits are stored on-chain in a form of stringified data, the resulting artefact is a metadata with instructions on how to recreate the image.
-   * This, however, would render on ordinals.com as text but not image and would require sites to specifically support the standard to generate the desired image.&#x20;
+   * This, however, would render on ordinals.com as text but not image and would require sites to specifically support the standard to generate the desired image.
 2. [BRC 721 experimental proposal](https://brc-721.gitbook.io/about-the-brc-721-experimental-proposal/)
-   * This proposal introduces externally linked (IPFS) images.&#x20;
+   * This proposal introduces externally linked (IPFS) images.
    * It does not adhere to [Ordinal Theory's definition of digital artifacts](https://docs.ordinals.com/inscriptions.html), which states that inscription content has to be entirely on-chain.
 3. [BRC-721 Ordinals Collection Protocol](https://www.brc721.com)
    * This is a protocol that introduces a similar standard with that of ERC-721 of Ethereum.
-   * Content is not on-chain and is externally linked in the form of `tokenURI`.&#x20;
+   * Content is not on-chain and is externally linked in the form of `tokenURI`.
 
 ### FAQ
 
-#### 1. What tools are available to verify Verifiable Ordinals?&#x20;
+#### 1. What tools are available to verify Verifiable Ordinals?
 
 Verification of verifiable ordinals can be carried out using standard tooling such as Bitcoin Core, using commands such as `verifymessage`.
 
@@ -210,6 +216,3 @@ Programming-language specific toolings and libraries are still being developed a
 #### 2. Would this break Ordinals for other users/tools/sites that are not aware of Verifiable Ordinals?
 
 Absolutely not. Verifiable Ordinals is backward-compatible. Services that are not aware of Verifiable Ordinals will simply be displaying ordinals and their inscriptions fine.
-
-
-
