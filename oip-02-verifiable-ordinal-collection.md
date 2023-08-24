@@ -103,7 +103,7 @@ Notes:
    * `sri` is an optional field and refers to subresource integrity. It adds resource integrity to inscriptions.
      1. SRI is defined in accordance to [W3C's SRI specifications](https://www.w3.org/TR/SRI/)
      2. If `sri` is present, validation must check for resource integrity. Otherwise, resource integrity check is not needed.
-6. Post-inscription of the collection, take note of its the genesis transaction ID, Genesis ID (in `i0` format), or Genesis Outpoint (in `:0` format). Either of these formats can be used for inscription verification, with all three collectively referred to as `COLLECTION_ID` throughout this OIP.
+6. Post-inscription of the collection, take note of the genesis transaction ID, genesis ID (in `i0` format), or genesis outpoint (in `:0` format). Either of these formats can be used for inscription verification, with all three collectively referred to as `COLLECTION_ID` throughout this OIP.
 
 ### Verifiable Ordinal Inscription
 
