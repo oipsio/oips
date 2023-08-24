@@ -96,7 +96,7 @@ Notes:
 3. `slug` is a suggestion and not a guarantee that the slug would be reserved for the specific collection. Even if `slug` has already taken by other collections before this one, this collection remains valid.
 4. `publ` refers to an array of public Bitcoin addresses from publisher. This is intended to be used for verification of inscribed Ordinals.
    * As Bitcoin Core does not support message signing with bech32 address, there are no known standard ways to sign messages with bech32 address today, it is recommended that publisher's address to be of the [legacy](https://bitcoin.design/guide/glossary/address/#legacy-address---p2pkh) type, usually starting with `1`.
-   * Alternatively, either an array of Bitcoin public keys or a mix of addresses and kpublic keys can also be used, which allows for a wider range of message signing and verification processes.
+   * Alternatively, an array of Bitcoin public keys or a mix of addresses and public keys can also be used, which allows for a wider range of message signing and verification processes.
 5. `insc` refers to an array of inscription collections.
    * `iid` refers to inscription ID. It must be unique within a collection. Collision of `iid` invalidates the collection definition.
    * `lim` defines the maximum number of times that an inscription can be sold or inscribed. Further inscriptions beyond `lim` count will be deemed invalid.&#x20;
