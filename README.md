@@ -18,11 +18,14 @@ Ordinal Theory Improvement Proposals, can also be appreviated to OIP.
 * [OIP-01: Inscription Metadata](oip-01-inscription-metadata.md)
 * [OIP-02: Verifiable Ordinal Collection](oip-02-verifiable-ordinal-collection.md)
 * [OIP-03: Recoverable Commits](oip-03-recoverable-commits.md)
+* [OIP-04: Chunking Large File](oip-04-chunking-of-inscriptions-for-larger-files.md)
+* [OIP-05: Renewable Lists](oip-05-on-chain-renewable-lists.md)
 
 ### Friends of OIPs
 
 * [Sado Protocol](https://sado.space)
 * [Unisat](https://unisat.io)
+* [Ordlify](https://ordlify.com/)
 * [Ordzaar](https://ordzaar.com)
 
 ### About
