@@ -5,4 +5,5 @@
 * [OIP-02: Verifiable Ordinal Collection](oip-02-verifiable-ordinal-collection.md)
 * [OIP-03: Recoverable Commits](oip-03-recoverable-commits.md)
 * [OIP-04: Chunking Large File](oip-04-chunking-of-inscriptions-for-larger-files.md)
-* [OIP-05: Renewable Lists](oip-05-on-chain-renewable-lists.md)
+* [OIP-05: Renewable Lists](oip-05-renewable-lists.md)
+* [OIP-06: Royalty](oip-06-royalty.md)
