@@ -1,6 +1,4 @@
-# OIP-06: Royalty
-
-## OIP-06: Ordinals Royalty Standard
+# OIP-06: Ordinals Royalty Standard
 
 Proposer: [U-Zyn Chua](https://twitter.com/uzyn)
 
