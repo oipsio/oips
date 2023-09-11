@@ -32,4 +32,4 @@ Ordinal Theory Improvement Proposals, can also be appreviated to OIP.
 
 This initiative is initially proposed by the core developers of [Sado Protocol](https://sado.space) – an open protocol and SDK for all things Ordinals. It is intended to be fully open and therefore allowing open contributions by all, for the benefits of making ordinals protocol more user and developer-friendly. 
 
-Pull requests, suggestions and discussions are greatly welcomed. Participate at the open repository at https://github.com/oipsio/oips
+Pull requests, suggestions and discussions are greatly welcomed. Participate at the open repository at the [GitHub repo](https://github.com/oipsio/oips)
