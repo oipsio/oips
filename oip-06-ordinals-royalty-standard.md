@@ -26,7 +26,7 @@ Royalty is to be defined in percentage of the sale price and in non-negative num
 * `1` for 100% royalty
 * `1.5` for 150% royalty
 
-Definition could be defined via either OIP-02: Verifiable Ordinal Collections or Ordinal Theory's metadata.
+Definition could be defined via either [OIP-02: Verifiable Ordinal Collections](oip-02-verifiable-ordinal-collection.md) or Ordinal Theory's metadata.
 
 Definition via OIP-02: Verifiable Ordinal Collections:
 
