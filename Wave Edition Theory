@@ -1,0 +1,29 @@
+Implementing a simple identifier for all satoshis : RFC (Request for Comment)
+
+This can also be known as a Satoshi Code.
+
+Overview
+Satoshi Codes can show up after the "Rare & exotic sat" status.
+
+Layout
+The following layout shows how Satoshi Codes can be implemented:
+
+Example: 
+B1y1we1c0; 2009 dragon 🐉 🔥 🚪
+B30000y2we1: 2010 bunny 🐇🔥 
+B60000y3we1: 2011 snake 🐍🔥 
+B90000y4h1we2rd1: 🐕⚡️🌀🏆 
+
+B = satoshi block number mined on bitcion
+y = year block mined
+we = wave edition (each four year before the halving is a wave)
+h1 = halving
+rd = reward decrease
+
+Objectives
+Provide a simple code to search and etch ordinals like trading card packs.
+Allow the community to use this and show new comers how to read the bitcoin public ledger.
+Allows ordinals to be easily located.
+
+Solution
+Release this improvement within the existing ORD ecosystem.
