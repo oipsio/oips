@@ -16,12 +16,15 @@ B90000y4h1we2rd1: 🐲⚡️🌀🏆
 
 B = satoshi block number mined on bitcion
 y = year block mined
-we = wave edition (each four year before the halving is a wave)
+we = wave edition (each four years before the halving is a wave)
 h1 = halving
 rd = reward decrease
 
 We can add smbols like the Chinese zodiac symbol and element at the end to denote specific years.
 As well as 🌀for halving event and 🏆 for reward decreases.
+The first block can have a 🛎️ to signal the inception event. 
+The first year can have a 🚪to signal a new path being forged.
+the last block & last year can have a 💥 or a 🌌 to symbolize a big bang event or a simultaneous multi-occurrence that transforms into whatever is next...
 
 Objectives
 Provide a simple code to search and etch ordinals like trading card packs.
